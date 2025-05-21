@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Khurt Michael A. Padilla - Personal Website</title>
+  <style>
+    /* Elegant Black & White Theme with Modern Design */
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #121212;
+      color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 1px solid #444;
+      padding-bottom: 20px;
+    }
+    h1 {
+      font-size: 3rem;
+      margin: 0;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fafafa;
+      text-shadow: 1px 1px 5px #000;
+    }
+    nav {
+      margin: 25px 0 40px 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    nav button {
+      background-color: transparent;
+      color: #f5f5f5;
+      border: 2px solid #f5f5f5;
+      border-radius: 30px;
+      padding: 12px 28px;
+      cursor: pointer;
+      font-family: 'Arial', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 8px rgba(245,245,245, 0.2);
+      user-select: none;
+    }
+    nav button:hover,
+    nav button:focus {
+      background-color: #f5f5f5;
+      color: #121212;
+      outline: none;
+      box-shadow: 0 0 15px #f5f5f5;
+      transform: scale(1.05);
+    }
+    /* Active button style for pressed light effect */
+    nav button.active {
+      background-color: #00ccff;
+      color: #121212;
+      border-color: #00ccff;
+      box-shadow: 0 0 20px #00ccff;
+      cursor: default;
+      pointer-events: none;
+      transform: scale(1.05);
+    }
+    section {
+      background: #1f1f1f;
+      border: 1px solid #333;
+      border-radius: 15px;
+      padding: 30px 35px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 25px 0 rgba(250, 250, 250, 0.1);
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      transition: background-color 0.25s ease;
+    }
+    section:hover {
+      background-color: #292929;
+    }
+    .photo-frame {
+      border: 3px solid #fafafa;
+      border-radius: 50%;
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 25px;
+      box-shadow: 0 0 20px #fafafa inset;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #353535;
+    }
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+      box-shadow: 0 0 25px rgba(250,250,250,0.45);
+      transition: transform 0.4s ease;
+      cursor: pointer;
+    }
+    .photo-frame img:hover {
+      transform: scale(1.1);
+      filter: brightness(1.1);
+    }
+    h3 {
+      font-family: 'Arial', sans-serif;
+      color: #e2e2e2;
+      margin-bottom: 20px;
+      letter-spacing: 0.8px;
+      font-weight: 800;
+      border-bottom: 2px solid #f5f5f5;
+      padding-bottom: 8px;
+    }
+    ul {
+      padding-left: 22px;
+      color: #cfcfcf;
+      font-family: 'Arial', sans-serif;
+      font-weight: 500;
+      font-size: 1.05rem;
+    }
+    ul li {
+      margin-bottom: 12px;
+      transition: color 0.3s ease;
+      position: relative;
+      padding-left: 20px;
+    }
+    ul li::before {
+      content: "▹";
+      color: #f5f5f5;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: 900;
+      font-size: 1.3rem;
+    }
+    ul li:hover {
+      color: #ffffff;
+    }
+    p {
+      max-width: 700px;
+      margin: 0 auto 20px;
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: #ddd;
+      font-family: 'Georgia', serif;
+      text-align: center;
+      line-height: 1.8;
+      letter-spacing: 0.02em;
+    }
+    .contact-links {
+      max-width: 360px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      font-family: 'Arial', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-align: center;
+    }
+    .contact-links a {
+      color: #fafafa;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+    .contact-links a:hover,
+    .contact-links a:focus {
+      color: #00ccff;
+      border-bottom: 2px solid #00ccff;
+      outline: none;
+    }
+    /* Simple icons with inline SVG for contact links */
+    .contact-links a svg {
+      vertical-align: middle;
+      margin-right: 8px;
+      fill: #fafafa;
+      transition: fill 0.3s ease;
+      height: 20px;
+      width: 20px;
+    }
+    .contact-links a:hover svg,
+    .contact-links a:focus svg {
+      fill: #00ccff;
+    }
+    /* Responsive tweaks */
+    @media (max-width: 480px) {
+      nav button {
+        padding: 10px 14px;
+        font-size: 0.9rem;
+        margin: 8px 6px;
+      }
+      .photo-frame {
+        width: 130px;
+        height: 130px;
+        margin-bottom: 20px;
+      }
+      h1 {
+        font-size: 2.4rem;
+      }
+      h3 {
+        font-size: 1.25rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      ul li {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Khurt Michael A. Padilla</h1>
+  <nav>
+    <button id="btn-intro" onclick="showSection('introduction', this)">Home</button>
+    <button id="btn-about" onclick="showSection('aboutMe', this)">About Me</button>
+    <button id="btn-skills" onclick="showSection('skills', this)">Skills</button>
+    <button id="btn-interests" onclick="showSection('interests', this)">Interests</button>
+    <button id="btn-contacts" onclick="showSection('contacts', this)">Contacts</button>
+  </nav>
+  <p><strong>Note: Educational Purposes Only</strong></p>
+</header>
+
+<section id="introduction">
+  <div class="photo-frame" title="Khurt's Photo">
+    <img src="https://i.postimg.cc/NGXx4nzk/download.jpg" alt="Khurt Michael A. Padilla Photo" loading="lazy" />
+  </div>
+  <p>Hello everyone. I am Khurt, a student at Eastern Visayas State University Carigara Campus. Feel free to check my simple website. Thank you.</p>
+</section>
+
+<section id="aboutMe" style="display:none;">
+  <div class="photo-frame" title="Khurt's Photo">
+    <img src="https://i.postimg.cc/NGXx4nzk/download.jpg" alt="Khurt Michael A. Padilla Photo" loading="lazy" />
+  </div>
+  <p><strong>Name:</strong> Khurt Michael A. Padilla</p>
+  <p><strong>Birthday:</strong> April 20, 2006</p>
+  <p><strong>Gender:</strong> Male</p>
+  <h3>Educational Background:</h3>
+  <ul>
+    <li>Elementary at Barugo I Central Elementary School (2012-2017)</li>
+    <li>Grade 7 to Grade 8 at Saint Joseph Academy Barugo Inc. (2017-2020)</li>
+    <li>High School Graduate at Barugo National Highschool (2020-2022)</li>
+    <li>Senior High School Graduate at Holy Cross College of Carigara (2022-2024)</li>
+    <li>Currently studying at Eastern Visayas State University Carigara Campus (2024-present)</li>
+  </ul>
+</section>
+
+<section id="skills" style="display:none;">
+  <h3>Skills</h3>
+  <ul>
+    <li>Photo and Video Editing</li>
+    <li>Encoding</li>
+    <li>Drawing</li>
+  </ul>
+</section>
+
+<section id="interests" style="display:none;">
+  <h3>Interests</h3>
+  <ul>
+    <li>Video Games</li>
+    <li>Arts</li>
+    <li>Logo Making</li>
+    <li>Politics</li>
+    <li>Editing</li>
+    <li>Cycling</li>
+    <li>Music</li>
+    <li>Digital Arts</li>
+  </ul>
+</section>
+
+<section id="contacts" style="display:none;">
+  <h3>Contact &amp; Socials</h3>
+  <div class="contact-links">
+
+    <a href="https://www.facebook.com/KhurtMichaelAvilaPadilla" target="_blank" rel="noopener" title="Facebook Profile">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H7v-3h3v-2.3c0-3 1.7-4.7 4.3-4.7 1.2 0 2.4.2 2.4.2v3h-1.5c-1.5 0-1.9.9-1.9 1.8V12h3.2l-.5 3h-2.7v7A10 10 0 0 0 22 12z"/></svg>
+      Facebook: Khurt Michael Avila Padilla
+    </a>
+    <a href="https://m.me/KhurtMichaelAvilaPadilla" target="_blank" rel="noopener" title="Messenger Chat">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M2 2l20 8-10 6-4-6-6 4zM23 1v22l-6-5-6 5V6z"/></svg>
+      Messenger: Khurt Michael Avila Padilla
+    </a>
+    <a href="mailto:khurtpadilla6@gmail.com" title="Send Email">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M22 6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2zm-11 7-5-5h10z"/></svg>
+      Email: khurtpadilla6@gmail.com
+    </a>
+    <a href="tel:+639682597850" title="Call Phone">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.4-2.4a1.2 1.2 0 0 1 1.2-.3c.9.3 2.1.6 3 .6a1.2 1.2 0 0 1 1.2 1.2v3.6a1.2 1.2 0 0 1-1.2 1.2A17.4 17.4 0 0 1 2.6 6.6a1.2 1.2 0 0 1 1.2-1.2h3.6a1.2 1.2 0 0 1 1.2 1.2c0 .9.3 2.1.6 3a1.2 1.2 0 0 1-.3 1.2z"/></svg>
+      Phone: 0968-259-7850
+    </a>
+  </div>
+</section>
+
+<script>
+  // Sections and their corresponding buttons
+  const sections = ['introduction', 'aboutMe', 'skills', 'interests', 'contacts'];
+
+  function showSection(sectionId, clickedButton) {
+    sections.forEach(id => {
+      // toggle section visibility
+      const section = document.getElementById(id);
+      const btn = document.getElementById('btn-' + id);
+
+      if (id === sectionId) {
+        if(section) section.style.display = 'block';
+        // add active to button clicked
+        if (btn) btn.classList.add('active');
+      } else {
+        if(section) section.style.display = 'none';
+        if (btn) btn.classList.remove('active');
+      }
+    });
+  }
+
+  // After DOM loads, assign IDs to buttons and set first active
+  window.addEventListener('DOMContentLoaded', () => {
+    // Assign IDs for buttons dynamically (to match section IDs)
+    const navButtons = document.querySelectorAll('nav button');
+    // Map buttons to sections using their onclick attribute:
+    navButtons.forEach(button => {
+      const onclickAttr = button.getAttribute('onclick');
+      // Extract section id from onclick="showSection('sectionId', this)"
+      // Use regex to get first param
+      if(onclickAttr) {
+        const match = onclickAttr.match(/showSection\('([\w]+)'.*/);
+        if(match) {
+          const sectionId = match[1];
+          button.id = 'btn-' + sectionId;
+        }
+      }
+    });
+    // Show only the introduction section and set home button active initially
+    showSection('introduction', document.getElementById('btn-introduction'));
+  });
+
+</script>
+
+</body>
+</html>
